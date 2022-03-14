@@ -22,8 +22,12 @@ export const CharactersCollectionContainer = () => {
   };
 
   const handleDelete = async (id: number) => {
+  try{
     await deleteCharacter(id);
-    loadCharacterCollection();
+    loadCharacterCollection();}
+    catch(error){
+      console.error(error)
+    }
   };
 
   return (

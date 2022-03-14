@@ -23,11 +23,15 @@ export const CharacterContainer: React.FunctionComponent = () => {
 
   const handleSave = async (character: Character) => {
     const apiCharacter = mapHotelFromVmToApi(character);
-    const success = await api.saveCharacter(apiCharacter);
-    if (success) {
-      console.log("i don't wanna goooo home")
-    } else {
-      alert('Error on save hotel');
+    try{
+      const success = await api.saveCharacter(apiCharacter);
+      if (success) {
+        console.log("i don't wanna goooo home")
+      } else {
+        alert('Error on save hotel');
+      }
+    }catch(error){
+      console.error(error)
     }
   };
 
