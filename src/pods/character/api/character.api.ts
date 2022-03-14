@@ -13,4 +13,5 @@ export const saveCharacter = async (character: Character): Promise<boolean> => {
     //Post
     return axios.post(`/api/characters`,character).then(({data})=>data)
   }
+  return true
 };

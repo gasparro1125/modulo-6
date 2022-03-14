@@ -17,10 +17,6 @@ interface Props {
 export const CharacterComponent: React.FunctionComponent<Props> = (props) => {
   const { character, onSave, onBack } = props;
 
-  React.useEffect(() => {
-    console.log(character.bestSentences)
-  }, [character]);
-
   return (
     <Formik
       onSubmit={onSave}

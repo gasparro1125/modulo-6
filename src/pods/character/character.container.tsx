@@ -10,20 +10,20 @@ export const CharacterContainer: React.FunctionComponent = () => {
   const { id } = useParams();
   const history = useHistory();
 
-  const handleLoadHotel = async () => {
-    const apiHotel = await api.getCharacter(id);
-    setCharacter(mapHotelFromApiToVm(apiHotel));
+  const handleLoadCharacter = async () => {
+    const apiCharacter = await api.getCharacter(id);
+    setCharacter(mapHotelFromApiToVm(apiCharacter));
   };
 
   React.useEffect(() => {
     if (id) {
-      handleLoadHotel();
+      handleLoadCharacter();
     };
   }, []);
 
-  const handleSave = async (hotel: Character) => {
-    const apiHotel = mapHotelFromVmToApi(hotel);
-    const success = await api.saveCharacter(apiHotel);
+  const handleSave = async (character: Character) => {
+    const apiCharacter = mapHotelFromVmToApi(character);
+    const success = await api.saveCharacter(apiCharacter);
     if (success) {
       console.log("i don't wanna goooo home")
     } else {
